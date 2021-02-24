@@ -1,13 +1,13 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import {HomeScreen} from './src/screens';
+import Router from './src/navigation';
+import {StatusBar} from 'react-native';
 
 const App = () => {
   return (
     <>
-      {/* <StatusBar /> */}
-      <HomeScreen />
+      <StatusBar barStyle="light-content" />
+      <Router />
     </>
   );
 };
