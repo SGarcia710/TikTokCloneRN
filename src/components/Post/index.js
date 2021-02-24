@@ -15,6 +15,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Video from 'react-native-video';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Post = ({
   user,
@@ -29,6 +30,7 @@ const Post = ({
   const [likes, setLikes] = useState(likesCount);
   const [isLiked, setIsLiked] = useState(liked);
   const spinValue = useRef(new Animated.Value(0)).current;
+  const insets = useSafeAreaInsets();
   const animateDisc = useCallback(() => {
     Animated.loop(
       Animated.timing(spinValue, {
@@ -54,7 +56,7 @@ const Post = ({
     <View
       style={[
         styles.container,
-        {height: Dimensions.get('window').height - 79},
+        {height: Dimensions.get('window').height - 45 - insets.bottom},
       ]}>
       <TouchableWithoutFeedback onPress={() => setPaused(!paused)}>
         <Video

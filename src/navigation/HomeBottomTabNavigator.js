@@ -15,7 +15,7 @@ const HomeTabNavigator = () => {
         tabStyle: {
           backgroundColor: '#000',
           paddingTop: 8.17,
-          height: 83,
+          height: 48 + insets.bottom,
           paddingBottom: insets.bottom,
         },
         activeTintColor: '#fff',
