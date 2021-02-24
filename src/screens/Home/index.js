@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, FlatList, Dimensions} from 'react-native';
+import {View, FlatList} from 'react-native';
 import {Post} from '../../components';
 
 const POSTS = [
@@ -64,7 +64,11 @@ const POSTS = [
 
 const HomeScreen = () => {
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'space-between',
+      }}>
       <FlatList
         data={POSTS}
         bounces={false}

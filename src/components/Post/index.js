@@ -29,7 +29,6 @@ const Post = ({
   const [likes, setLikes] = useState(likesCount);
   const [isLiked, setIsLiked] = useState(liked);
   const spinValue = useRef(new Animated.Value(0)).current;
-
   const animateDisc = useCallback(() => {
     Animated.loop(
       Animated.timing(spinValue, {
@@ -52,11 +51,15 @@ const Post = ({
   });
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {height: Dimensions.get('window').height - 79},
+      ]}>
       <TouchableWithoutFeedback onPress={() => setPaused(!paused)}>
         <Video
           paused={paused}
-          style={styles.video}
+          style={[styles.video]}
           resizeMode="cover"
           source={{
             uri: videoUrl,
@@ -136,11 +139,11 @@ const Post = ({
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: Dimensions.get('window').height,
     justifyContent: 'flex-end',
   },
   video: {
     ...StyleSheet.absoluteFillObject,
+    // flex: 1,
   },
   uiContainer: {
     // height: '100%',
