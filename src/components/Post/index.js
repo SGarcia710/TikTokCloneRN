@@ -23,8 +23,11 @@ const Post = ({
   commentsCount,
   likesCount,
   videoUrl,
+  liked,
 }) => {
   const [paused, setPaused] = useState(false);
+  const [likes, setLikes] = useState(likesCount);
+  const [isLiked, setIsLiked] = useState(liked);
   const spinValue = useRef(new Animated.Value(0)).current;
 
   const animateDisc = useCallback(() => {
@@ -74,9 +77,22 @@ const Post = ({
               <Text style={styles.plusIcon}>+</Text>
             </TouchableOpacity>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.actionContainer}>
-            <MaterialCommunityIcons name="heart" size={35} color="white" />
-            <Text style={styles.actionText}>{likesCount}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              if (!isLiked) {
+                setLikes(likes + 1);
+              } else {
+                setLikes(likes - 1);
+              }
+              setIsLiked(!isLiked);
+            }}
+            style={styles.actionContainer}>
+            <MaterialCommunityIcons
+              name="heart"
+              size={35}
+              color={isLiked ? '#E44558' : 'white'}
+            />
+            <Text style={styles.actionText}>{likes}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionContainer}>
             <FontAwesome name="commenting" size={35} color="white" />

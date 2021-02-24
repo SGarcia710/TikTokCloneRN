@@ -6,9 +6,10 @@ const HomeScreen = () => {
   return (
     <View>
       <Post
-        commentsCount="578"
+        liked={true}
+        commentsCount={358}
         description="Hey check this! 🤪 #trending #crazy "
-        likesCount="322.9k"
+        likesCount={1000}
         song={{
           name: 'Blinding Lights',
           coverUrl:
