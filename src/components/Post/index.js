@@ -16,6 +16,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Video from 'react-native-video';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import TextTicker from 'react-native-text-ticker';
 
 const Post = ({
   user,
@@ -115,8 +116,22 @@ const Post = ({
             <Text style={styles.description}>{description}</Text>
 
             <View style={styles.songNameContainer}>
-              <Foundation name="music" size={16} color="white" />
-              <Text style={styles.songName}>{song.name}</Text>
+              <Foundation
+                style={{paddingRight: 5}}
+                name="music"
+                size={16}
+                color="white"
+              />
+              <TextTicker
+                duration={4000}
+                loop
+                easing={Easing.linear}
+                bounce={false}
+                style={styles.songName}
+                repeatSpacer={10}
+                useNativeDriver>
+                {song.name}
+              </TextTicker>
             </View>
           </View>
           <Animated.View
@@ -213,11 +228,11 @@ const styles = StyleSheet.create({
   },
   songNameContainer: {
     flexDirection: 'row',
+    maxWidth: 180,
     alignItems: 'center',
   },
   songName: {
     color: '#fff',
-    marginLeft: 5,
   },
   songCoverContainer: {
     justifyContent: 'center',

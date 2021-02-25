@@ -10,7 +10,7 @@ const POSTS = [
     description: 'Hey check this! 🤪 #trending #crazy ',
     likesCount: 1000,
     song: {
-      name: 'Blinding Lights',
+      name: 'The Weekend - Blinding Lights',
       coverUrl:
         'https://res.cloudinary.com/sgarciacloud/image/upload/v1614151822/theweekendcover_yucli1.jpg',
     },
